@@ -11,7 +11,7 @@ function cron (ms, fn): void {
 }
 
 let page = 1
-cron(1000, function () {
+cron(60000, function () {
   request('https://reqres.in/api/users?page=' + page, function (error, response, body) {
     let data = JSON.parse(fs.readFileSync('src/scrap/users.json', 'utf8'))
     data = data.concat(JSON.parse(body).data)
